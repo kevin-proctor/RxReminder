@@ -24,6 +24,11 @@ export class DrugService {
     })
   }
 
+  GetDrug(id: string){
+    this.drugRef = this.db.object('drugs-list/' + id);
+    return this.drugRef;
+  }
+
   /* Get drug list */
   GetDrugList() {
     this.drugsRef = this.db.list('drugs-list');

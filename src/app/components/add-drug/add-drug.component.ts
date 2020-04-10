@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { DrugService } from './../../drug.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -46,7 +46,8 @@ export class AddDrugComponent implements OnInit {
   submitDrugForm() {
     this.drugForm = this.fb.group({
       drug_name: ['', [Validators.required]],
-      directions: ['', [Validators.required]]
+      directions: ['', [Validators.required]],
+      times: ['']
     })
   }
 

@@ -1,1 +1,57 @@
-<p>edit-drug works!</p>
+<!-- Title group  -->
+<div class="title-group">
+    <h1 class="mat-h1">Edit Drug</h1>
+    <mat-divider fxFlex="1 0"></mat-divider>
+  </div>
+  
+  <!-- Drug form -->
+  <div class="inner-wrapper">
+    <form [formGroup]="editDrugForm" (ngSubmit)="updateDrug()" novalidate>
+      <mat-card>
+        <div class="controlers-wrapper">
+          <!-- Drug name -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Drug name" formControlName="Drug_name">
+            <mat-error *ngIf="handleError('Drug_name', 'required')">
+              You must provide a<strong>Drug name</strong>
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Directions -->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Directions" formControlName="directions">
+            <mat-error *ngIf="handleError('directions', 'required')">
+              You must provide an <strong>directions</strong>
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Add times -->
+          <mat-form-field class="multiple-items">
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let time of timeArray" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(time)">
+                {{time.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Add times" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeyCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <i class="material-icons tooltip-info" matTooltip="Enter item name and press enter to add multiple items">
+              info
+            </i>
+          </mat-form-field>
+        </div>
+      </mat-card>
+  
+      <!-- Submit & Reset -->
+      <mat-card>
+        <div class="full-wrapper button-wrapper">
+          <div class="button-wrapper">
+            <button mat-flat-button color="warn">Update</button>
+            <button mat-flat-button color="war" type="button" (click)="goBack()">Go Back</button>
+          </div>
+        </div>
+      </mat-card>
+    </form>
+  </div>
