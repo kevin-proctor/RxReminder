@@ -38,7 +38,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       MatChipsModule,
       MatTooltipModule,
       MatTableModule,
-      MatPaginatorModule
+      MatPaginatorModule,
    ],
    providers: [
       MatDatepickerModule,
