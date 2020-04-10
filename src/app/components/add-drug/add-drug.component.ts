@@ -18,7 +18,7 @@ export class AddDrugComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  timeArray: Time[] = [];
+  // timeArray: Time[] = [];
   @ViewChild('chipList') chipList;
   @ViewChild('resetDrugForm') myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -35,19 +35,19 @@ export class AddDrugComponent implements OnInit {
   ) { }
 
   /* Remove dynamic times */
-  remove(time: Time): void {
-    const index = this.timeArray.indexOf(time);
-    if (index >= 0) {
-      this.timeArray.splice(index, 1);
-    }
-  }
+  // remove(time: Time): void {
+  //   const index = this.timeArray.indexOf(time);
+  //   if (index >= 0) {
+  //     this.timeArray.splice(index, 1);
+  //   }
+  // }
 
   /* Reactive drug form */
   submitDrugForm() {
     this.drugForm = this.fb.group({
       drug_name: ['', [Validators.required]],
       directions: ['', [Validators.required]],
-      times: ['']
+      // times: ['']
     })
   }
 
@@ -57,22 +57,22 @@ export class AddDrugComponent implements OnInit {
   }
 
   /* Add dynamic times */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add time
-    if ((value || '').trim() && this.timeArray.length < 5) {
-      this.timeArray.push({ name: value.trim() })
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
+  // add(event: MatChipInputEvent): void {
+  //   const input = event.input;
+  //   const value = event.value;
+  //   // Add time
+  //   if ((value || '').trim() && this.timeArray.length < 5) {
+  //     this.timeArray.push({ name: value.trim() })
+  //   }
+  //   // Reset the input value
+  //   if (input) {
+  //     input.value = '';
+  //   }
+  // }
 
   /* Reset form */
   resetForm() {
-    this.timeArray = [];
+    // this.timeArray = [];
     this.drugForm.reset();
     Object.keys(this.drugForm.controls).forEach(key => {
       this.drugForm.controls[key].setErrors(null)

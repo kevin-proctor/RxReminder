@@ -19,7 +19,6 @@ export class DrugListComponent implements OnInit {
     '$key',
     'drug_name',
     'directions',
-    'times'
   ];
 
   constructor(private drugApi: DrugService) {

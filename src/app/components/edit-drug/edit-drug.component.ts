@@ -21,7 +21,7 @@ export class EditDrugComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  timeArray: Time[] = [];
+  // timeArray: Time[] = [];
   @ViewChild('chipList') chipList;
   readonly separatorKeyCodes: number[] = [ENTER, COMMA];
   editDrugForm: FormGroup;
@@ -39,7 +39,7 @@ export class EditDrugComponent implements OnInit {
   ) {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.drugApi.GetDrug(id).valueChanges().subscribe(data => {
-      this.timeArray = data.times;
+      // this.timeArray = data.times;
       this.editDrugForm.setValue(data);
     })
   }
@@ -49,31 +49,31 @@ export class EditDrugComponent implements OnInit {
     this.editDrugForm = this.fb.group({
       drug_name: ['', [Validators.required]],
       directions: ['', [Validators.required]],
-      times: ['']
+      // times: ['']
     })
   }
 
   /* Add Time */
-  add(event: MatChipInputEvent): void {
-    var input: any = event.input;
-    var value: any = event.value;
-    // Add time
-    if ((value || '').trim() && this.timeArray.length < 5) {
-      this.timeArray.push({name: value.trim()});
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
+  // add(event: MatChipInputEvent): void {
+  //   var input: any = event.input;
+  //   var value: any = event.value;
+  //   // Add time
+  //   if ((value || '').trim() && this.timeArray.length < 5) {
+  //     this.timeArray.push({name: value.trim()});
+  //   }
+  //   // Reset the input value
+  //   if (input) {
+  //     input.value = '';
+  //   }
+  // }
 
   /* Remove time */
-  remove(time: any): void {
-    const index = this.timeArray.indexOf(time);
-    if (index >= 0) {
-      this.timeArray.splice(index, 1);
-    }
-  }
+  // remove(time: any): void {
+  //   const index = this.timeArray.indexOf(time);
+  //   if (index >= 0) {
+  //     this.timeArray.splice(index, 1);
+  //   }
+  // }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {

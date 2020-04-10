@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'add-drug', component: AddDrugComponent },
   { path: 'edit-drug', component: EditDrugComponent },
   { path: 'drug-list', component: DrugListComponent }
+  
 ];
 
 @NgModule({

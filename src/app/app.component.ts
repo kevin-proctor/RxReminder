@@ -7,7 +7,6 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'RxApp';
   opened = true;
   @ViewChild('sidenav') sidenav: MatSidenav;
 
@@ -15,8 +14,7 @@ export class AppComponent {
     if (window.innerWidth < 768) {
       this.sidenav.fixedTopGap = 55;
       this.opened = false;
-    }
-    else {
+    } else {
       this.sidenav.fixedTopGap = 55;
       this.opened = true;
     }
