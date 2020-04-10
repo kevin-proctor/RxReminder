@@ -11,7 +11,8 @@ import { AngularMaterialModule } from './material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { DrugService } from './drug.service'
+import { DrugService } from './drug.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { DrugService } from './drug.service'
     BrowserAnimationsModule,
     AngularMaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DrugService],
   bootstrap: [AppComponent],
