@@ -17,7 +17,7 @@ export class DrugService {
     this.drugsRef.push({
       drug_name: drug.drug_name,
       directions: drug.directions,
-      times: drug.times
+      // times: drug.times
     })
     .catch(error => {
       this.errorMgmt(error);
@@ -40,7 +40,7 @@ export class DrugService {
     this.drugRef.update({
       drug_name: drug.drug_name,
       directions: drug.directions,
-      times: drug.times
+      // times: drug.times
     })
     .catch(error => {
       this.errorMgmt(error);
